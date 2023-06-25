@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import "./styles.css";
+import { Container, Row, Col } from "reactstrap";
+import TodoInput from "./TodoInput";
+import ShowTodo from "./ShowTodo";
+import ShowInprogress from "./ShowInprogress";
+import ShowCompleted from "./ShowCompleted";
+import Provider from "./Provider";
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider>
+      <Container style={{ marginTop: "10px" }}>
+        <TodoInput />
+
+        <Row xs="3">
+          <Col>
+            <ShowTodo />
+          </Col>
+          <Col>
+            <ShowInprogress />
+          </Col>
+          <Col>
+            <ShowCompleted />
+          </Col>
+        </Row>
+      </Container>
+    </Provider>
   );
 }
-
-export default App;
